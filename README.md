@@ -1,35 +1,35 @@
 # 🎬 Movies API (SQLite)  
 
-## 📌 Опис  
-Цей проєкт — API для керування фільмами, написаний на **Node.js + Express + Sequelize** з базою **SQLite**.  
-Він підтримує **реєстрацію користувачів, логін, додавання фільмів, пошук, імпорт з файлу та видалення**.  
+## 📌 Description.   
+This project is a movie management API written in **Node.js + Express + Sequelize** with a **SQLite** database.  
+It supports **user registration, login, adding movies, searching, importing from file, and deleting**.  
 
 ---
 
-## 🚀 Запуск у Docker  
+## 🚀 Running in Docker    
 
-### **1️⃣ Клонування репозиторію**  
+### **1️⃣ Clone the repository**  
 ```sh
 git clone https://github.com/YOUR_REPO/movies-api.git
 cd movies-api
 ``` 
 
-### **2️⃣ Налаштування змінних середовища**  
+### **2️⃣ Setting up environment variables**  
 ```sh
 cp .env.example .env
 ```
 
-🔹 Відкрий .env та перевір значення:
+🔹 Open the .env and check the values:
 ```sh
 DB_STORAGE=data/database.sqlite
 JWT_SECRET=your_secret_key
 APP_PORT=8000
 ```
-### **3️⃣ Побудова Docker-образу (локально)** 
+### **3️⃣ Building a Docker image (locally)** 
 ```sh
 docker build -t danaadmin/movies .
 ```
-### **4️⃣ Публікація Docker-образу на Docker Hub** 
+### **4️⃣ Publishing a Docker image on the Docker Hub** 
 ```sh
 docker login
 docker push danaadmin/movies
@@ -37,30 +37,30 @@ docker push danaadmin/movies
 🔗 Docker Hub:  https://hub.docker.com/r/danaadmin/movies
 
  
-### **5️⃣  Запуск програми в один рядок** 
+### **5️⃣  Run the program in one line** 
 ```sh
 docker run --name movies -p 8000:8050 -e APP_PORT=8050 danaadmin/movies
 ```
-Локальний доступ: http://localhost:8000
+Local access: http://localhost:8000
 
-Всередині контейнера програма працює на порту 8050
+Inside the container, the program runs on port 8050
 
-### **Структура проєкту**
+### **Project structure**
 ```sh
-├── data/                   # SQLite база
-├── src/                    # Основна логіка програми
-│   ├── config/             # Конфігурація бази даних 
-│   ├── controllers/        # Контролери (авторизація, фільми)
-│   ├── middleware/         # Middleware для JWT-авторизації
-│   ├── models/             # Sequelize моделі: фільми, актори, користувачі
-│   ├── routes/             # Маршрути для API
-│   ├── utils/              # Парсинг txt-файлів та утиліти
-│   ├── app.js              # Ініціалізація Express
-│   └── server.js           # Запуск сервера
-├── uploads/                # TXT-файли, що імпортуються
-├── .env                    # Файл середовища
-├── .env.example            # Зразок .env
-├── Dockerfile              # Docker конфігурація
+├── data/                   # SQLite Database 
+├── src/                    # The main logic of the program
+│   ├── config/             # Database configuration 
+│   ├── controllers/        # Controllers (authorization, movies)
+│   ├── middleware/         # Middleware for JWT-authorization
+│   ├── models/             # Sequelize models: movies, actors, users
+│   ├── routes/             # Routes for the API
+│   ├── utils/              # Parsing of txt files and utility
+│   ├── app.js              # Initializing Express
+│   └── server.js           # Starting the server
+├── uploads/                # TXT files to be imported
+├── .env                    # Environment file
+├── .env.example            # Sample .env file
+├── Dockerfile              # Docker configuration
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
